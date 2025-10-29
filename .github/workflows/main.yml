@@ -1,22 +1,57 @@
-# name of the workflow/pipeline
-name: github action demo pipeline
-# trigger event 
+# # name of the workflow/pipeline
+# name: github action demo pipeline
+# # trigger event 
+# on:
+#     push:
+#         branches:
+#         - main
+
+# jobs:
+#     demo-job:
+#         runs-on: ubuntu-latest
+        # beacuse to run we required one vm
+
+#         steps:
+#             - name: checkout code
+#               uses: actions/checkout@v2
+
+#             - name: print message
+#               run: echo "welcome to github actions"
+#             #   to run linux commands use run
+             
+name: ETL Pipeline Demo
+
 on:
     push:
         branches:
         - main
-
 jobs:
-    demo-job:
+    extract-data:
         runs-on: ubuntu-latest
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v2
+
+            - name: run extract.py
+              run: python extract.py
+    transform-data-job:
+        runs-on: ubuntu-latest    
 
         steps:
             - name: checkout code
               uses: actions/checkout@v2
 
-            - name: print message
-              run: echo "welcome to github actions"
-            #   to run linux commands use run
-             
+            - name: run transform.py
+              run: python transform.py
+    
+    load-data-job:
+        runs-on: ubuntu-latest    
+
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v2
+
+            - name: run load.py
+              run: python load.py
 
 
