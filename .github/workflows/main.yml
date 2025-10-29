@@ -1,23 +1,4 @@
-# # name of the workflow/pipeline
-# name: github action demo pipeline
-# # trigger event 
-# on:
-#     push:
-#         branches:
-#         - main
 
-# jobs:
-#     demo-job:
-#         runs-on: ubuntu-latest
-        # beacuse to run we required one vm
-
-#         steps:
-#             - name: checkout code
-#               uses: actions/checkout@v2
-
-#             - name: print message
-#               run: echo "welcome to github actions"
-#             #   to run linux commands use run
              
 name: ETL Pipeline Demo
 
